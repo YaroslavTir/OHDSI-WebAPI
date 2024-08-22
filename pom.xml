@@ -1273,8 +1273,8 @@
         <dependency>
           <groupId>com.intersystems</groupId>
           <artifactId>intersystems-jdbc</artifactId>
-<!--          <version>3.8.4</version>-->
-          <version>3.7.1</version>
+          <version>3.8.4</version>
+<!--          <version>3.7.1</version>-->
         </dependency>
       </dependencies>
     </profile>
