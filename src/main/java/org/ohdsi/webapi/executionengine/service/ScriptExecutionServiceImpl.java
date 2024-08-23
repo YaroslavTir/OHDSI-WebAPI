@@ -15,6 +15,7 @@ import net.lingala.zip4j.model.FileHeader;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.text.StrSubstitutor;
 import org.glassfish.jersey.media.multipart.FormDataBodyPart;
 import org.glassfish.jersey.media.multipart.MultiPart;
@@ -126,7 +127,7 @@ class ScriptExecutionServiceImpl extends AbstractDaoService implements ScriptExe
         dataSourceData.setTargetSchema(SourceUtils.getTempQualifier(source));
 
         final String analysisExecutionUrl = "/analyze";
-        WebTarget webTarget = client.target(executionEngineURL + analysisExecutionUrl);
+        WebTarget webTarget = client.target(StringUtils.removeEnd(executionEngineURL, "/") + analysisExecutionUrl);
         log.info("Execution engine URL: {}", webTarget.getUri());
         try{
             File tempDir = Files.createTempDirectory(TEMPDIR_PREFIX).toFile();
