@@ -127,6 +127,7 @@ class ScriptExecutionServiceImpl extends AbstractDaoService implements ScriptExe
 
         final String analysisExecutionUrl = "/analyze";
         WebTarget webTarget = client.target(executionEngineURL + analysisExecutionUrl);
+        log.info("Execution engine URL: {}", webTarget.getUri());
         try{
             File tempDir = Files.createTempDirectory(TEMPDIR_PREFIX).toFile();
             try{
